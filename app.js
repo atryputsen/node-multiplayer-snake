@@ -26,7 +26,10 @@ const SERVER_PORT = process.env.PORT || 3000;
 app.set('port', SERVER_PORT);
 
 // Start Express server
-server.listen(app.get('port'), () => {
+server.listen({
+    host: '0.0.0.0',
+    port: app.get('port')
+}, () => {
     console.log('Express server listening on port %d in %s mode', app.get('port'), app.get('env'));
 });
 
